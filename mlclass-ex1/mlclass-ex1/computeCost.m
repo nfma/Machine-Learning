@@ -1,6 +1,6 @@
 function J = computeCost(X, y, theta)
-%COMPUTECOST Compute cost for linear regression
-%   J = COMPUTECOST(X, y, theta) computes the cost of using theta as the
+%COMPUTECOSTMULTI Compute cost for linear regression with multiple variables
+%   J = COMPUTECOSTMULTI(X, y, theta) computes the cost of using theta as the
 %   parameter for linear regression to fit the data points in X and y
 
 % Initialize some useful values
@@ -13,9 +13,11 @@ J = 0;
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
 
+for i = 1:m
+  J = J + ((theta(1) + theta(2)*X(i, 2)) - y(i))^2;
+endfor;
 
-
-
+J = J / 2 / m; 
 
 % =========================================================================
 
